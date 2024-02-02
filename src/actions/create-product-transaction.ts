@@ -43,7 +43,7 @@ export async function createProductTransaction(
     idServicio: +attributes.idServicio,
     telefono,
     referencia: attributes.tipoFront === "2" ? telefono : undefined,
-    horaLocal: new Date().getMilliseconds().toString(),
+    horaLocal: "20220101235900",
     upc: "test_UPC_83_348",
     unidad: "083",
     montoPago: formData.get("montoPago")

@@ -102,28 +102,30 @@ export const ProductForm = ({ product, title }: Props) => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-4 p-4">
               <h3 className="text-lg text-center">{title}</h3>
-              <Input
-                {...register("telefono", {
-                  required: {
-                    value: true,
-                    message: "El campo es requerido",
-                  },
-                  minLength: {
-                    value: minLengthValue,
-                    message: `La longitud mínima es ${minLengthValue} caracteres`,
-                  },
-                  maxLength: {
-                    value: maxLengthValue,
-                    message: `La longitud máxima es ${maxLengthValue} caracteres`,
-                  },
-                })}
-                name="telefono"
-                label={label}
-                labelPlacement="outside"
-                placeholder={label}
-                isInvalid={!!errors.telefono?.message}
-                errorMessage={errors.telefono?.message}
-              />
+              <div className="mt-4">
+                <Input
+                  {...register("telefono", {
+                    required: {
+                      value: true,
+                      message: "El campo es requerido",
+                    },
+                    minLength: {
+                      value: minLengthValue,
+                      message: `La longitud mínima es ${minLengthValue} caracteres`,
+                    },
+                    maxLength: {
+                      value: maxLengthValue,
+                      message: `La longitud máxima es ${maxLengthValue} caracteres`,
+                    },
+                  })}
+                  name="telefono"
+                  label={label}
+                  labelPlacement="outside"
+                  placeholder={label}
+                  isInvalid={!!errors.telefono?.message}
+                  errorMessage={errors.telefono?.message}
+                />
+              </div>
             </div>
             {renderedInputMontoPago}
             <Button

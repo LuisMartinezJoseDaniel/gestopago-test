@@ -2,7 +2,6 @@ import { getProductById } from "@/actions/get-product-by-id";
 import { Summary } from "@/components";
 import { ProductForm } from "@/components/services/product-form";
 import { ServiceRedeemForm } from "@/components/services/service-form";
-import { ShowHelp } from "@/components/services/show-help";
 import { Card } from "@nextui-org/react";
 import { notFound } from "next/navigation";
 
@@ -23,20 +22,18 @@ export default async function CreateProductTransactionPage({ params }: Props) {
 
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="flex gap-2 justify-center flex-wrap items-stretch">
         {!isRedeemableItem ? (
-          <ProductForm product={product} title="Ingrese los datos" />
+          <div className="w-full md:w-2/6">
+            <ProductForm product={product} title="Ingrese los datos" />
+          </div>
         ) : null}
-
-        <Card className="p-2">
-          <Summary product={product} />
-          {isRedeemableItem ? <ServiceRedeemForm product={product} /> : null}
-        </Card>
-
-        <ShowHelp
-          showAyuda={product.attributes.showAyuda}
-          legend={product.legend.cdata}
-        />
+        <div className="md:w-3/6 h-full">
+          <Card className="p-2">
+            <Summary product={product} />
+            {isRedeemableItem ? <ServiceRedeemForm product={product} /> : null}
+          </Card>
+        </div>
       </div>
     </div>
   );

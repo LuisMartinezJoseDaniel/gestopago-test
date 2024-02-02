@@ -1,6 +1,7 @@
 "use client";
 import { Producto } from "@/interfaces/product";
 import { CardBody, CardHeader, Divider } from "@nextui-org/react";
+import { ShowHelp } from "./show-help";
 
 interface Props {
   product: Producto;
@@ -11,8 +12,12 @@ interface Props {
 export const Summary = ({ product, subtotal }: Props) => {
   return (
     <>
-      <CardHeader>
+      <CardHeader className="flex justify-between">
         <h3>Resumen</h3>
+        <ShowHelp
+          showAyuda={product.attributes.showAyuda}
+          legend={product.legend.cdata}
+        />
       </CardHeader>
       <CardBody>
         <Divider />

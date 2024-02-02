@@ -47,7 +47,7 @@ export async function createProductTransaction(
     upc: "test_UPC_83_348",
     unidad: "083",
     montoPago: formData.get("montoPago")
-      ? +formData.get("montoPago")!
+      ? Number(formData.get("montoPago") || "1")
       : undefined,
   };
 

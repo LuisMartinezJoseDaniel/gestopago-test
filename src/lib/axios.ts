@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://aws.portalventas.net/service/preprod", // Replace with your API endpoint
+  baseURL: `${process.env.GESTOPAGO_SERVER}${process.env.GESTOPAGO_CONTEXT}`, // Replace with your API endpoint
   // timeout: 5000, // Set a timeout for requests (in milliseconds)
   headers: {
     "Content-Type": "text/xml", // Set the default content type for request headers
